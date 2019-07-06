@@ -1,0 +1,92 @@
+﻿@model IEnumerable<WebService.Models.Zipcode>
+
+    @{
+ViewData["Title"] = "Zipcode";
+    }
+
+    <h2>Consultar dados do Cep</h2>
+
+@using (Html.BeginForm("ConsultarZipcode", "Zipcode", FormMethod.Get)){
+
+
+<div style="margin-top:30px" class="container">
+    @Html.TextBox("cep", "", new { @class = "form-control" })
+
+    <input id="botao" type="submit" value="Consultar CEP"
+            class="form-control" />
+</div>
+}
+    @{ Html.EndForm();}
+
+
+    <table class="table" id="tblZipcode">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cep)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Logradouro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Complemento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bairro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Localidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Uf)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Unidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ibge)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gia)
+                </th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+    {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Logradouro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Complemento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bairro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Localidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ibge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gia)
+                </td>
+
+            </tr>
+    }
+        </tbody>
+
+    </table>
